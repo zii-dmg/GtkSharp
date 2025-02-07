@@ -1,0 +1,16 @@
+<Project>
+  <Import Project="$([MSBuild]::GetPathOfFileAbove('Directory.Build.props', '$(MSBuildThisFileDirectory)..\'))" />
+
+  <PropertyGroup>
+    <TargetFrameworks>net$(_GtkSharpNetVersion);netstandard2.0</TargetFrameworks>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <OutputPath>$(_GtkSharpBuildOutputDirectory)\$(Configuration)</OutputPath>
+    <!--  
+      Microsoft.DotNet.SharedFramework.Sdk requires our framework assemblies to be signed 
+      (to have a "public key token")
+    -->
+    <SignAssembly>True</SignAssembly>
+    <AssemblyOriginatorKeyFile>$(MSBuildThisFileDirectory)\GtkSharp.snk</AssemblyOriginatorKeyFile>
+    <LangVersion>9</LangVersion>
+  </PropertyGroup>
+</Project>

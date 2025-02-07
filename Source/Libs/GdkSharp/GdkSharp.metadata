@@ -16,7 +16,6 @@
   <attr path="/api/namespace/class[@cname='GdkCairo_']/method[@name='GetClipRectangle']/parameters/parameter[@name='rect']" name="pass_as">out</attr>
   <attr path="/api/namespace/class[@cname='GdkDrag_']/method[@name='Begin']" name="hidden">1</attr>
   <attr path="/api/namespace/class[@cname='GdkDrag_']/method[@name='FindWindowForScreen']/*/*[@name='dest_window']" name="pass_as">out</attr>
-  <attr path="/api/namespace/class[@cname='GdkEvent_']/method[@name='HandlerSet']" name="hidden">1</attr>
   <attr path="/api/namespace/class[@cname='GdkEvent_']" name="name">EventHelper</attr>
   <attr path="/api/namespace/class[@cname='GdkKeyval_']/method[@name='Name']/return-type" name="type">const-gchar*</attr>
   <attr path="/api/namespace/class[@cname='GdkGlobal']/method[@name='AddOptionEntriesLibgtkOnly']" name="hidden">1</attr>
@@ -86,6 +85,8 @@
   <attr path="/api/namespace/object[@cname='GdkDragContext']/method[@name='ListTargets']/return-type" name="element_type">GdkAtom*</attr>
   <attr path="/api/namespace/object[@cname='GdkKeymap']/method[@name='GetEntriesForKeycode']" name="hidden">1</attr>
   <attr path="/api/namespace/object[@cname='GdkKeymap']/method[@name='GetEntriesForKeyval']" name="hidden">1</attr>
+  <attr path="/api/namespace/object[@cname='GdkMonitor']/method[@name='GetGeometry']/*/*[@type='GdkRectangle*']" name="pass_as">out</attr>
+  <attr path="/api/namespace/object[@cname='GdkMonitor']/method[@name='GetWorkarea']/*/*[@type='GdkRectangle*']" name="pass_as">out</attr>
   <attr path="/api/namespace/object[@cname='GdkPixbuf']/constructor[@cname='gdk_pixbuf_new_from_data']" name="hidden">1</attr>
   <attr path="/api/namespace/object[@cname='GdkPixbuf']/constructor[@cname='gdk_pixbuf_new_from_file']" name="hidden">1</attr>
   <attr path="/api/namespace/object[@cname='GdkPixbuf']/constructor[@cname='gdk_pixbuf_new_from_file_utf8']" name="hidden">1</attr>
@@ -100,6 +101,7 @@
   <attr path="/api/namespace/object[@cname='GdkPixbuf']/method[@name='AddAlpha']" name="hidden">1</attr>
   <attr path="/api/namespace/object[@cname='GdkPixbuf']/method[@name='ApplyEmbeddedOrientation']/return-type" name="owned">true</attr>
   <attr path="/api/namespace/object[@cname='GdkPixbuf']/method[@name='CompositeColorSimple']" name="hidden">1</attr>
+  <attr path="/api/namespace/object[@cname='GdkPixbuf']/method[@name='Flip']/return-type" name="owned">true</attr>
   <attr path="/api/namespace/object[@cname='GdkPixbuf']/method[@name='GetFormats']" name="hidden">1</attr>
   <attr path="/api/namespace/object[@cname='GdkPixbuf']/method[@name='GetPixels']" name="hidden">1</attr>
   <attr path="/api/namespace/object[@cname='GdkPixbuf']/method[@name='Save']" name="hidden">1</attr>
@@ -109,6 +111,8 @@
   <attr path="/api/namespace/object[@cname='GdkPixbuf']/method[@name='SaveToBufferv']" name="hidden">1</attr>
   <attr path="/api/namespace/object[@cname='GdkPixbuf']/method[@name='SaveToCallback']" name="hidden">1</attr>
   <attr path="/api/namespace/object[@cname='GdkPixbuf']/method[@name='SaveToCallbackv']" name="hidden">1</attr>
+  <attr path="/api/namespace/object[@cname='GdkPixbuf']/method[@name='SaveToStream']" name="hidden">1</attr>
+  <attr path="/api/namespace/object[@cname='GdkPixbuf']/method[@name='SaveToStreamv']" name="hidden">1</attr>
   <attr path="/api/namespace/object[@cname='GdkPixbuf']/method[@name='ScaleSimple']" name="hidden">1</attr>
   <attr path="/api/namespace/object[@cname='GdkPixbuf']/method[@name='RotateSimple']/return-type" name="owned">true</attr>
   <attr path="/api/namespace/object[@cname='GdkPixbuf']/property[@name='Pixels']" name="hidden">1</attr>
@@ -121,6 +125,7 @@
   <attr path="/api/namespace/object[@cname='GdkPixbufLoader']/method[@name='Write']/*/*[@name='buf']" name="array">1</attr>
   <attr path="/api/namespace/object[@cname='GdkScreen']/method[@name='GetFontOptions']" name="hidden">1</attr>
   <attr path="/api/namespace/object[@cname='GdkScreen']/method[@name='GetMonitorGeometry']/*/*[@type='GdkRectangle*']" name="pass_as">out</attr>
+  <attr path="/api/namespace/object[@cname='GdkScreen']/method[@name='GetMonitorWorkarea']/*/*[@type='GdkRectangle*']" name="pass_as">out</attr>
   <attr path="/api/namespace/object[@cname='GdkScreen']/method[@name='GetToplevelWindows']" name="hidden">1</attr>
   <attr path="/api/namespace/object[@cname='GdkScreen']/method[@name='Height']" name="hidden">1</attr>
   <attr path="/api/namespace/object[@cname='GdkScreen']/method[@name='HeightMm']" name="hidden">1</attr>

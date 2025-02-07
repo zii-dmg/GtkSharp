@@ -28,6 +28,7 @@ namespace GLib {
 	using System.Collections.Generic;
 	using System.IO;
 	using System.Reflection;
+	using System.Runtime.CompilerServices;
 	using System.Runtime.InteropServices;
 	using System.Text;
 
@@ -238,7 +239,11 @@ namespace GLib {
 					break;
 			}
 
-			if (result == null) {
+			if (result == null
+#if NET6_0_OR_GREATER
+				&& RuntimeFeature.IsDynamicCodeSupported
+#endif
+				) {
 				// Because of lazy loading of references, it's possible the type's assembly
 				// needs to be loaded.  We will look for it by name in the references of
 				// the currently loaded assemblies.  Hopefully a recursive traversal is
@@ -246,15 +251,15 @@ namespace GLib {
 				// in a patch from bug #400595, and a desire to keep memory usage low
 				// by avoiding a complete loading of all dependent assemblies.
 				string ns = type_name.Substring (0, type_name.LastIndexOf ('.'));
-				string asm_name = ns.ToLower ().Replace ('.', '-') + "-sharp";
+				string asm_name = ns.Replace (".", "") + "Sharp";
 				foreach (Assembly asm in assemblies) {
 					foreach (AssemblyName ref_name in asm.GetReferencedAssemblies ()) {
 						if (ref_name.Name != asm_name)
 							continue;
 						try {
-							string asm_dir = Path.GetDirectoryName (asm.Location);
+							string asm_dir = Path.GetDirectoryName (asm.Location); // will be null or empty for single file publish
 							Assembly ref_asm;
-							if (File.Exists (Path.Combine (asm_dir, ref_name.Name + ".dll")))
+							if (!string.IsNullOrEmpty (asm_dir) && File.Exists (Path.Combine (asm_dir, ref_name.Name + ".dll")))
 								ref_asm = Assembly.LoadFrom (Path.Combine (asm_dir, ref_name.Name + ".dll"));
 							else
 								ref_asm = Assembly.Load (ref_name);

@@ -6114,11 +6114,11 @@
       <property name="Spacing" cname="spacing" type="gint" readable="true" writeable="true" />
       <property name="Homogeneous" cname="homogeneous" type="gboolean" readable="true" writeable="true" />
       <property name="BaselinePosition" cname="baseline-position" type="GtkBaselinePosition" readable="true" writeable="true" />
-      <property name="Expand" cname="expand" type="gboolean" readable="true" writeable="true" />
-      <property name="Fill" cname="fill" type="gboolean" readable="true" writeable="true" />
-      <property name="Padding" cname="padding" type="guint" readable="true" writeable="true" />
-      <property name="PackType" cname="pack-type" type="GtkPackType" readable="true" writeable="true" />
-      <property name="Position" cname="position" type="gint" readable="true" writeable="true" />
+      <childprop name="Expand" cname="expand" type="gboolean" readable="true" writeable="true" />
+      <childprop name="Fill" cname="fill" type="gboolean" readable="true" writeable="true" />
+      <childprop name="Padding" cname="padding" type="guint" readable="true" writeable="true" />
+      <childprop name="PackType" cname="pack-type" type="GtkPackType" readable="true" writeable="true" />
+      <childprop name="Position" cname="position" type="gint" readable="true" writeable="true" />
       <virtual_method name="GtkReserved1" cname="_gtk_reserved1" shared="true" padding="true">
         <return-type type="void" />
       </virtual_method>
@@ -12709,10 +12709,10 @@
       <property name="RowHomogeneous" cname="row-homogeneous" type="gboolean" readable="true" writeable="true" />
       <property name="ColumnHomogeneous" cname="column-homogeneous" type="gboolean" readable="true" writeable="true" />
       <property name="BaselineRow" cname="baseline-row" type="gint" readable="true" writeable="true" />
-      <property name="LeftAttach" cname="left-attach" type="gint" readable="true" writeable="true" />
-      <property name="TopAttach" cname="top-attach" type="gint" readable="true" writeable="true" />
-      <property name="Width" cname="width" type="gint" readable="true" writeable="true" />
-      <property name="Height" cname="height" type="gint" readable="true" writeable="true" />
+      <childprop name="LeftAttach" cname="left-attach" type="gint" readable="true" writeable="true" />
+      <childprop name="TopAttach" cname="top-attach" type="gint" readable="true" writeable="true" />
+      <childprop name="Width" cname="width" type="gint" readable="true" writeable="true" />
+      <childprop name="Height" cname="height" type="gint" readable="true" writeable="true" />
       <virtual_method name="GtkReserved1" cname="_gtk_reserved1" shared="true" padding="true">
         <return-type type="void" />
       </virtual_method>
@@ -13638,7 +13638,7 @@
       <property name="CellArea" cname="cell-area" type="GtkCellArea" readable="true" writeable="true" construct-only="true" />
       <property name="ActivateOnSingleClick" cname="activate-on-single-click" type="gboolean" readable="true" writeable="true" />
       <property name="SelectionBoxColor" cname="selection-box-color" type="GTypeFromName(&quot;gdkcolor&quot;)" readable="true" />
-      <property name="SelectionBoxAlpha" cname="selection-box-alpha" type="uchar" readable="true" />
+      <property name="SelectionBoxAlpha" cname="selection-box-alpha" type="guchar" readable="true" />
       <signal name="ItemActivated" cname="item-activated" when="LAST" field_name="item_activated">
         <return-type type="void" />
         <parameters>
@@ -19833,8 +19833,8 @@
     <object name="Range" cname="GtkRange" parent="GtkWidget">
       <class_struct cname="GtkRangeClass">
         <field name="ParentClass" cname="parent_class" type="GtkWidgetClass" />
-        <field name="Gchar" cname="gchar" type="G_GNUC_DEPRECATED" />
-        <field name="Gchar" cname="gchar" type="G_GNUC_DEPRECATED" />
+        <field name="SliderDetail" cname="slider_detail" type="gchar*" />
+        <field name="StepperDetail" cname="stepper_detail" type="gchar*" />
         <method signal_vm="value_changed" />
         <method signal_vm="adjust_bounds" />
         <method signal_vm="move_slider" />
@@ -21211,7 +21211,7 @@
       <property name="GtkKeynavCursorOnly" cname="gtk-keynav-cursor-only" type="gboolean" />
       <property name="GtkKeynavWrapAround" cname="gtk-keynav-wrap-around" type="gboolean" />
       <property name="GtkErrorBell" cname="gtk-error-bell" type="gboolean" />
-      <property name="ColorHash" cname="color-hash" type="GtkParamReadable|gParamDeprecated)" />
+      <property name="ColorHash" cname="color-hash" type="GHashTable*" />
       <property name="GtkFileChooserBackend" cname="gtk-file-chooser-backend" type="gchar*" />
       <property name="GtkPrintBackends" cname="gtk-print-backends" type="gchar*" />
       <property name="GtkPrintPreviewCommand" cname="gtk-print-preview-command" type="gchar*" />
@@ -21794,11 +21794,11 @@
       <property name="TransitionType" cname="transition-type" type="GtkStackTransitionType" readable="true" writeable="true" />
       <property name="TransitionRunning" cname="transition-running" type="gboolean" readable="true" />
       <property name="InterpolateSize" cname="interpolate-size" type="gboolean" readable="true" writeable="true" />
-      <property name="Name" cname="name" type="gchar*" readable="true" writeable="true" />
-      <property name="Title" cname="title" type="gchar*" readable="true" writeable="true" />
-      <property name="IconName" cname="icon-name" type="gchar*" readable="true" writeable="true" />
-      <property name="Position" cname="position" type="gint" readable="true" writeable="true" />
-      <property name="NeedsAttention" cname="needs-attention" type="gboolean" readable="true" writeable="true" />
+      <childprop name="Name" cname="name" type="gchar*" readable="true" writeable="true" />
+      <childprop name="Title" cname="title" type="gchar*" readable="true" writeable="true" />
+      <childprop name="IconName" cname="icon-name" type="gchar*" readable="true" writeable="true" />
+      <childprop name="Position" cname="position" type="gint" readable="true" writeable="true" />
+      <childprop name="NeedsAttention" cname="needs-attention" type="gboolean" readable="true" writeable="true" />
       <method name="AddNamed" cname="gtk_stack_add_named">
         <return-type type="void" />
         <parameters>
@@ -28475,7 +28475,7 @@
       <signal name="TouchEvent" cname="touch-event" when="LAST" field_name="touch_event">
         <return-type type="gboolean" />
         <parameters>
-          <parameter type="GdkEventTouch*" name="event" />
+          <parameter type="GdkEvent*" name="event" />
         </parameters>
       </signal>
       <signal name="ScrollEvent" cname="scroll-event" when="LAST" field_name="scroll_event">

@@ -270,7 +270,7 @@ namespace GtkSharp.Generation {
 				gen_info.Writer.WriteLine();
 				gen_info.Writer.WriteLine("\t\tprotected " + Name + "() : base(IntPtr.Zero)");
 				gen_info.Writer.WriteLine("\t\t{");
-				gen_info.Writer.WriteLine("\t\t\tCreateNativeObject (new string [0], new GLib.Value [0]);");
+				gen_info.Writer.WriteLine("\t\t\tCreateNativeObject (Array.Empty<string> (), Array.Empty<GLib.Value> ());");
 				gen_info.Writer.WriteLine("\t\t}");
 			}
 			gen_info.Writer.WriteLine();
@@ -373,7 +373,7 @@ namespace GtkSharp.Generation {
 
 			sw.WriteLine ("namespace GtkSharp." + Studlify (dir_info.assembly_name) + " {");
 			sw.WriteLine ();
-			sw.WriteLine ("\tpublic class ObjectManager {");
+			sw.WriteLine ("\tpublic partial class ObjectManager {");
 			sw.WriteLine ();
 			sw.WriteLine ("\t\tstatic bool initialized = false;");
 			sw.WriteLine ("\t\t// Call this method from the appropriate module init function.");
@@ -389,8 +389,16 @@ namespace GtkSharp.Generation {
 					sw.WriteLine ("\t\t\tGLib.GType.Register ({0}.GType, typeof ({0}));", dir_info.objects [key]);
 				}
 			}
-					
+			
+			sw.WriteLine ();
+			sw.WriteLine ("\t\t\tInitializeExtras();");
+			
 			sw.WriteLine ("\t\t}");
+			
+			sw.WriteLine ();
+			sw.WriteLine ("\t\tstatic partial void InitializeExtras();");
+			
+			sw.WriteLine ();
 			sw.WriteLine ("\t}");
 			sw.WriteLine ("}");
 			sw.Close ();

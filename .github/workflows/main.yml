@@ -1,0 +1,36 @@
+name: Build
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    permissions:
+      packages: write
+    strategy:
+      matrix:
+        os: [ubuntu-22.04]
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: recursive
+      - name: Setup .NET Core SDK ${{ matrix.dotnet-version }}
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: '8.0.x'
+      - name: Restore dotnet tools
+        run: dotnet tool restore
+      - name: Run build.cake
+        run: dotnet cake build.cake
+        env:
+          GITHUB_ACTIONS: true
+      - uses: actions/upload-artifact@main
+        with:
+          name: NuGet Packages
+          path: |
+            BuildOutput/NugetPackages/**/*.nupkg
+          if-no-files-found: error
+      - name: Push NuGet to GitHub packages
+        run: dotnet nuget push BuildOutput/NugetPackages/**/*.nupkg --source https://nuget.pkg.github.com/$GITHUB_REPOSITORY_OWNER/index.json --api-key ${GITHUB_TOKEN}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

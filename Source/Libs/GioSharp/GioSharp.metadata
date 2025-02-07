@@ -14,6 +14,8 @@
   <attr path="/api/namespace/class[@cname='GContent_']/method[@name='TypeGetDescription']" name="name">GetDescription</attr>
   <attr path="/api/namespace/class[@cname='GContent_']/method[@name='TypeGetIcon']" name="name">GetIcon</attr>
   <attr path="/api/namespace/class[@cname='GContent_']/method[@name='TypeGetMimeType']" name="name">GetMimeType</attr>
+  <attr path="/api/namespace/class[@cname='GContent_']/method[@name='TypeGuess']/parameters/parameter[@name='data']" name="array">1</attr>
+  <attr path="/api/namespace/class[@cname='GContent_']/method[@name='TypeGuess']/parameters/parameter[@name='data_size']" name="name">n_data</attr>
   <attr path="/api/namespace/class[@cname='GContent_']/method[@name='TypeGuess']" name="name">Guess</attr>
   <attr path="/api/namespace/class[@cname='GContent_']/method[@name='TypeGuessForTree']" name="name">GuessForTree</attr>
   <attr path="/api/namespace/class[@cname='GContent_']/method[@name='TypeIsA']" name="name">IsA</attr>
@@ -186,4 +188,12 @@
   <move-node path="/api/namespace/class[@cname='GSimple_']/method[@name='ReportGerrorInIdle']">/api/namespace/object[@cname='GSimpleAsyncResult']</move-node>
   <move-node path="/api/namespace/class[@cname='GSimple_']/method[@name='ReportTakeGerrorInIdle']">/api/namespace/object[@cname='GSimpleAsyncResult']</move-node>
   <remove-node path="/api/namespace/interface[@cname='GTlsBackend']" />
+  <remove-node path="/api/namespace/struct[@cname='GPollableInputStream']" />
+  <attr path="/api/namespace/object[@cname='GMemoryInputStream']/implements/interface[@cname='GPollableInputStream']" name="hidden">1</attr>
+  <attr path="/api/namespace/object[@cname='GConverterInputStream']/implements/interface[@cname='GPollableInputStream']" name="hidden">1</attr>
+  <attr path="/api/namespace/object[@cname='GSocketInputStream']/implements/interface[@cname='GPollableInputStream']" name="hidden">1</attr>
+  <remove-node path="/api/namespace/struct[@cname='GPollableOutputStream']" />
+  <attr path="/api/namespace/object[@cname='GConverterOutputStream']/implements/interface[@cname='GPollableOutputStream']" name="hidden">1</attr>
+  <attr path="/api/namespace/object[@cname='GSocketOutputStream']/implements/interface[@cname='GPollableOutputStream']" name="hidden">1</attr>
+  <attr path="/api/namespace/object[@cname='GMemoryOutputStream']/implements/interface[@cname='GPollableOutputStream']" name="hidden">1</attr>
 </metadata>

@@ -18,8 +18,9 @@
   "symbols": {
     "targetframework": {
       "type": "parameter",
-      "defaultValue": "net5.0",
-      "replaces": "net5.0"
+      "description": "The target framework for the project.",
+      "defaultValue": "net8.0",
+      "replaces": "$(FrameworkParameter)"
     }
   },
   "primaryOutputs": [

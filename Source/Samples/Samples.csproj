@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <OutputPath>..\..\BuildOutput\Samples</OutputPath>
   </PropertyGroup>
@@ -15,7 +15,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Sections\**\*.cs" Visible="false">
+    <EmbeddedResource Include="Sections\**\*.cs">
       <LogicalName>GtkSharp.Samples.%(Filename).cs</LogicalName>
     </EmbeddedResource>
   </ItemGroup>
